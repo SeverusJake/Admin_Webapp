@@ -62,11 +62,11 @@ export class LoginComponent implements OnInit {
           if (userTemp.roles[0].name == 'ROLE_USER') {
             Swal.fire({
               icon: 'error',
-              title: 'Đăng nhập failed!',
+              title: 'Login failed!',
               showConfirmButton: false,
               timer: 1500
             })
-            this.toastr.error('Sai Thông Tin Đăng Nhập', 'System');
+            this.toastr.error('Login failed', 'System');
             this.isLoginFailed = true;
             this.sessionService.signOut();
             return;
@@ -74,7 +74,7 @@ export class LoginComponent implements OnInit {
             localStorage.setItem("roleID", String(userTemp.roles[0].id));
             Swal.fire({
               icon: 'success',
-              title: 'Đăng nhập successfully!',
+              title: 'Login successfully!',
               showConfirmButton: false,
               timer: 1500
             })
@@ -86,11 +86,11 @@ export class LoginComponent implements OnInit {
       error => {
         Swal.fire({
           icon: 'error',
-          title: 'Đăng nhập failed!',
+          title: 'Login failed!',
           showConfirmButton: false,
           timer: 1500
         })
-        this.toastr.error('Sai Thông Tin Đăng Nhập', 'System');
+        this.toastr.error('Login failed', 'System');
         this.isLoginFailed = true;
       }
     );

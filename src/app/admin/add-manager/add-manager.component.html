@@ -10,10 +10,10 @@
                 <div class="form-group col-12">
                     <label for="name">Name of manager</label>
                     <input type="text" id="name" [ngClass]="{'is-invalid':postFormAdmin.get('name')?.touched && postFormAdmin.get('name')?.invalid}" class="form-control" formControlName="name">
-                    <small class="invalid-feedback">Name of không hợp lệ</small>
+                    <small class="invalid-feedback">Name is invalid</small>
                 </div>
                 <div class="form-group col-12">
-                    <label for="name">Phân quyền</label>
+                    <label for="name">Role</label>
                     <select name="role" id="selected"  (change)="selectOption($any($event.target).value)" class="form-control" formControlName="selected">
                         <option *ngFor="let role of roles" [value]="role.id">{{ role.label }}</option>
                         </select>
@@ -23,22 +23,22 @@
                     <label for="email">Email</label>
                     <div class="input-group">
                         <input type="email" email id="price" [ngClass]="{'is-invalid':postFormAdmin.get('email')?.touched && postFormAdmin.get('email')?.invalid}" class="form-control" formControlName="email">
-                        <small class="invalid-feedback">Email không hợp lệ</small>
+                        <small class="invalid-feedback">Email is invalid</small>
                     </div>
                 </div>
                 <div class="form-group col-12">
                     <label for="password">Password</label>
                     <div class="input-group">
                         <input type="password" id="password" [ngClass]="{'is-invalid':postFormAdmin.get('password')?.touched && postFormAdmin.get('password')?.invalid}" class="form-control" formControlName="password">
-                        <small class="invalid-feedback">Password không hợp lệ</small>
+                        <small class="invalid-feedback">Password is invalid</small>
                     </div>
                 </div>
 
                 <div class="form-group col-12">
-                    <label for="password">Confirm mật khẩu</label>
+                    <label for="password">Confirm password</label>
                     <div class="input-group">
                         <input type="password" id="passwordConfirm" [ngClass]="{'is-invalid':postFormAdmin.get('passwordConfirm')?.touched && postFormAdmin.get('passwordConfirm')?.invalid}" class="form-control" formControlName="passwordConfirm">
-                        <small class="invalid-feedback">Password không hợp lệ</small>
+                        <small class="invalid-feedback">Password is invalid</small>
                     </div>
                 </div>
 
@@ -46,28 +46,28 @@
                     <label for="address">Address</label>
                     <div class="input-group">
                         <input type="text" id="address" [ngClass]="{'is-invalid':postFormAdmin.get('address')?.touched && postFormAdmin.get('address')?.invalid}" class="form-control" formControlName="address">
-                        <small class="invalid-feedback">Address không hợp lệ</small>
+                        <small class="invalid-feedback">Address is invalid</small>
                     </div>
                 </div>
                 <div class="form-group col-12">
                     <label for="phone">Phone Number</label>
                     <div class="input-group">
                         <input type="text" id="phone" [ngClass]="{'is-invalid':postFormAdmin.get('phone')?.touched && postFormAdmin.get('phone')?.invalid}" class="form-control" formControlName="phone">
-                        <small class="invalid-feedback">Phone Number không hợp lệ</small>
+                        <small class="invalid-feedback">Phone Number is invalid</small>
                     </div>
                 </div>
                 <div class="form-group col-12">
                     <label for="exampleFormControlSelect1">Gender</label>
                     <select class="form-control" id="gender" name="gender" formControlName="gender">
-                        <option value="true">Nam</option>
-                        <option value="false">Nữ</option>
+                        <option value="true">Male/option>
+                        <option value="false">Female</option>
                     </select>
                 </div>
             </div>
             <div class="col-6">
                 <div class="col-12 text-center">
                     <h3>Avatar</h3>
-                    <img [src]="image" style="width: 150px; height: 150px; object-fit: cover;" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|} mt-3 mb-3" alt="Ảnh product">
+                    <img [src]="image" style="width: 150px; height: 150px; object-fit: cover;" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|} mt-3 mb-3" alt="Picture of product">
                     <div class="custom-file" style="width: 80%;">
                         <input type="file" class="custom-file-input" id="customFile" (change)="onFileSelect($event)">
                         <label class="custom-file-label" for="customFile">Choose picture</label>

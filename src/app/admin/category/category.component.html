@@ -12,7 +12,7 @@
                 <mat-label>Search</mat-label>
                 <input matInput type="text" (keyup)="search($event);" />
             </mat-form-field>
-            <button mat-raised-button color="primary" class="ml-3" style="float: right;" (click)="exporter.exportTable('csv', {fileName:'List of loại product'})">Export to Excel</button>
+            <button mat-raised-button color="primary" class="ml-3" style="float: right;" (click)="exporter.exportTable('csv', {fileName:'List of category'})">Export to Excel</button>
             <app-add-category *ngIf="isPrimeAdmin" style="float: right;" (saveFinish)="finish()"></app-add-category>
         </div>
         <div class="col-12">

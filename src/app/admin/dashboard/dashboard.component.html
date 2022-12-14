@@ -88,7 +88,7 @@
         <div class="col-2">
             <h2 style="font-size: 18px;">Revenue by year</h2>
             <ul *ngFor="let item of countYears | orderBy : 'item' : true">
-                <li><span  title='View doanh thu của năm {{item}}' style="cursor: pointer; color: rgb(37, 111, 177);" (click)="setYear(item)">Year {{item}}</span>: <span style="font-weight: 500;">{{getRevenueYear(item)|currency:'VND'}}</span></li>
+                <li><span  title='View revenue by year {{item}}' style="cursor: pointer; color: rgb(37, 111, 177);" (click)="setYear(item)">Year {{item}}</span>: <span style="font-weight: 500;">{{getRevenueYear(item)|currency:'VND'}}</span></li>
             </ul>
         </div>
         <div class="col-10">

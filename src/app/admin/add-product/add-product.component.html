@@ -10,31 +10,31 @@
             <div class="form-group col-6">
                 <label for="name">Name of product</label>
                 <input type="text" id="name" [ngClass]="{'is-invalid':postForm.get('name')?.touched && postForm.get('name')?.invalid}" class="form-control" formControlName="name">
-                <small class="invalid-feedback">Name of product không hợp lệ</small>
+                <small class="invalid-feedback">Name of product is invalid</small>
             </div>
             <div class="form-group col-6">
                 <label for="price">Price</label>
                 <div class="input-group">
                     <input type="number" id="price" [ngClass]="{'is-invalid':postForm.get('price')?.touched && postForm.get('price')?.invalid}" class="form-control" formControlName="price">
                     <div class="input-group-append">
-                        <span class="input-group-text" id="basic-addon2">VNĐ</span>
+                        <span class="input-group-text" id="basic-addon2">VND</span>
                     </div>
-                    <small class="invalid-feedback">Price product không hợp lệ</small>
+                    <small class="invalid-feedback">Price product is invalid</small>
                 </div>
             </div>
             <div class="form-group col-6">
-                <label for="quantity">Số lượng</label>
+                <label for="quantity">Quantity</label>
                 <input type="number" id="quantity" [ngClass]="{'is-invalid':postForm.get('quantity')?.touched && postForm.get('quantity')?.invalid}" class="form-control" formControlName="quantity">
-                <small class="invalid-feedback">Số lượng không hợp lệ</small>
+                <small class="invalid-feedback">Quantity is invalid</small>
             </div>
             <div class="form-group col-6">
-                <label for="discount">Khuyến mãi</label>
+                <label for="discount">Discount</label>
                 <div class="input-group">
                     <input type="number" id="discount" [ngClass]="{'is-invalid':postForm.get('discount')?.touched && postForm.get('discount')?.invalid}" class="form-control" formControlName="discount">
                     <div class="input-group-append">
                         <span class="input-group-text" id="basic-addon2">%</span>
                     </div>
-                    <small class="invalid-feedback">Khuyến mãi không hợp lệ</small>
+                    <small class="invalid-feedback">Discount is invalid</small>
                 </div>
             </div>
             <div class="col-6 p-0">
@@ -45,14 +45,14 @@
                     </select>
                 </div>
                 <div class="form-group col-12">
-                    <label for="description">Mô tả product</label>
+                    <label for="description">Product's description</label>
                     <textarea type="text" id="description" [ngClass]="{'is-invalid':postForm.get('description')?.touched && postForm.get('description')?.invalid}" class="form-control" rows="6" formControlName="description"></textarea>
-                    <small class="invalid-feedback">Cancel hợp lệ</small>
+                    <small class="invalid-feedback">Cancel is invalid</small>
                 </div>
             </div>
             <div class="col-6 text-center">
-                <h3>Ảnh product</h3>
-                <img [src]="image" width="200px" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|} mt-3 mb-3" alt="Ảnh product">
+                <h3>Picture of product</h3>
+                <img [src]="image" width="200px" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|} mt-3 mb-3" alt="Picture of product">
                 <div class="custom-file">
                     <input type="file" class="custom-file-input" id="customFile" (change)="onFileSelect($event)">
                     <label class="custom-file-label" for="customFile">Choose picture</label>

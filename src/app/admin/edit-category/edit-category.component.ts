@@ -41,7 +41,7 @@ export class EditCategoryComponent implements OnInit {
       })
     }, error=>{
       this.modalService.dismissAll();
-      this.toastr.error('Error! không tìm thấy' + error), 'System ';
+      this.toastr.error('Error! Not found' + error), 'System ';
     })
   }
 

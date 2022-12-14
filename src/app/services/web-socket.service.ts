@@ -22,7 +22,7 @@ export class WebSocketService {
     this.webSocket.onmessage = (event) => {
       const chatMessageDto = JSON.parse(event.data);
       let mess: ChatMessage = chatMessageDto as ChatMessage;
-      this.toastr.info('Customers '+mess.user+' đã đặt 1 orders!', 'System');
+      this.toastr.info('Customers '+mess.user+' has place an order!', 'System');
       this.chatMessages.push(chatMessageDto);
     };
 
