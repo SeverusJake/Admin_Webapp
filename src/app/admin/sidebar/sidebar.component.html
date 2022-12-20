@@ -1,99 +1,110 @@
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-    <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" [routerLink]="['/admin/dashboard']">
-        <!-- <link rel="icon" type="image/x-icon" href="favicon.png"> -->
-        <img src="https://res.cloudinary.com/veggie-shop/image/upload/v1670511762/assets/logo_long_k5raeu.png" width="100%">
-        <!-- <a href="logo_long.png" width="100%" height="100%"></a> -->
-        <!-- <div class="sidebar-brand-icon rotate-n-15">
+<ul
+  class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+  id="accordionSidebar"
+>
+  <!-- Sidebar - Brand -->
+  <a
+    class="sidebar-brand d-flex align-items-center justify-content-center"
+    [routerLink]="['/admin/dashboard']"
+  >
+    <!-- <link rel="icon" type="image/x-icon" href="favicon.png"> -->
+    <img
+      src="https://res.cloudinary.com/veggie-shop/image/upload/v1670511762/assets/logo_long_k5raeu.png"
+      width="100%"
+    />
+    <!-- <a href="logo_long.png" width="100%" height="100%"></a> -->
+    <!-- <div class="sidebar-brand-icon rotate-n-15">
             <i></i>
         </div>
         <div class="sidebar-brand-text mx-2">Green Farm</div> -->
-    </a>
+  </a>
 
-    <!-- Divider -->
-    <hr class="sidebar-divider my-0">
+  <!-- Divider -->
+  <hr class="sidebar-divider my-0" />
 
-    <!-- Nav Item - Dashboard -->
-    <li class="nav-item {{pageActive=='dashboard'?'active':''}}">
-        <a class="nav-link" [routerLink]="['/admin/dashboard']">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Home</span></a>
-    </li>
+  <!-- Nav Item - Dashboard -->
+  <li class="nav-item {{ pageActive == 'dashboard' ? 'active' : '' }}">
+    <a class="nav-link" [routerLink]="['/admin/dashboard']">
+      <i class="fas fa-school"></i>
+      <span>Home</span></a
+    >
+  </li>
 
-    <!-- Divider -->
-    <hr class="sidebar-divider">
+  <!-- Divider -->
+  <hr class="sidebar-divider" />
 
-    <!-- Heading -->
-    <div class="sidebar-heading">
-        Management
-    </div>
+  <!-- Heading -->
+  <div class="sidebar-heading">Management</div>
 
-    <li class="nav-item {{pageActive=='manager'?'active':''}}">
-        <a class="nav-link" [routerLink]="['/admin/manager']">
-            <i class="fas fa-user-tie fa-chart-area"></i>
-            <span>Administrator</span></a>
-    </li>
-    <li class="nav-item {{pageActive=='customer'?'active':''}}">
-        <a class="nav-link" [routerLink]="['/admin/customer']">
-            <i class="fas fa-user fa-chart-area"></i>
-            <span>Customers</span></a>
-    </li>
-    <li class="nav-item {{pageActive=='order'?'active':''}}">
-        <a class="nav-link" [routerLink]="['/admin/order']">
-            <i class="fas fa-shopping-bag fa-chart-area"></i>
-            <span>Orders</span></a>
-    </li>
-    <li class="nav-item {{pageActive=='product'?'active':''}}">
-        <a class="nav-link" [routerLink]="['/admin/product']">
-            <i class="fas fa-table fa-chart-area"></i>
-            <span>Products</span></a>
-    </li>
-    <li class="nav-item {{pageActive=='category'?'active':''}}">
-        <a class="nav-link" [routerLink]="['/admin/category']">
-            <i class="fas fa-table fa-chart-area"></i>
-            <span>Categories</span></a>
-    </li>
+  <li class="nav-item {{ pageActive == 'manager' ? 'active' : '' }}">
+    <a class="nav-link" [routerLink]="['/admin/manager']">
+      <i class="fas fa-user-tie fa-chart-area"></i>
+      <span>Administrator</span></a
+    >
+  </li>
+  <li class="nav-item {{ pageActive == 'customer' ? 'active' : '' }}">
+    <a class="nav-link" [routerLink]="['/admin/customer']">
+      <i class="fas fa-users-class"></i>
+      <span>Customers</span></a
+    >
+  </li>
+  <li class="nav-item {{ pageActive == 'order' ? 'active' : '' }}">
+    <a class="nav-link" [routerLink]="['/admin/order']">
+      <i class="fas fa-shopping-cart fa-chart-area"></i>
+      <span>Orders</span></a
+    >
+  </li>
+  <li class="nav-item {{ pageActive == 'product' ? 'active' : '' }}">
+    <a class="nav-link" [routerLink]="['/admin/product']">
+      <i class="fas fa-box"></i>
+      <span>Products</span></a
+    >
+  </li>
+  <li class="nav-item {{ pageActive == 'category' ? 'active' : '' }}">
+    <a class="nav-link" [routerLink]="['/admin/category']">
+      <i class="fas fa-table"></i>
+      <span>Categories</span></a
+    >
+  </li>
 
-    <li class="nav-item {{pageActive=='rate'?'active':''}}">
-        <a class="nav-link" [routerLink]="['/admin/rate']">
-            <i class="fas fa-star-half-alt"></i>
-            <span>Review & Rating</span></a>
-    </li>
+  <li class="nav-item {{ pageActive == 'rate' ? 'active' : '' }}">
+    <a class="nav-link" [routerLink]="['/admin/rate']">
+      <i class="fas fa-star-half-alt"></i>
+      <span>Review & Rating</span></a
+    >
+  </li>
 
-    <hr class="sidebar-divider">
+  <hr class="sidebar-divider" />
 
-    <!-- Heading -->
-    <div class="sidebar-heading">
-        Analysis
-    </div>
+  <!-- Heading -->
+  <div class="sidebar-heading">Analysis</div>
 
-    <!-- Nav Item - Charts -->
-    <!-- <li class="nav-item {{pageActive=='category-best-seller'?'active':''}}">
+  <!-- Nav Item - Charts -->
+  <!-- <li class="nav-item {{pageActive=='category-best-seller'?'active':''}}">
         <a class="nav-link" [routerLink]="['/admin/statistical-category']">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Popular category</span></a>
     </li> -->
 
-    <!-- Nav Item - Tables -->
-    <!-- <li class="nav-item {{pageActive=='soldest'?'active':''}}">
+  <!-- Nav Item - Tables -->
+  <!-- <li class="nav-item {{pageActive=='soldest'?'active':''}}">
         <a class="nav-link" [routerLink]="['/admin/soldest']">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Popular product </span></a>
     </li> -->
 
-    <li class="nav-item {{pageActive=='inventory'?'active':''}}">
-        <a class="nav-link" [routerLink]="['/admin/inventory']">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Stock</span></a>
-    </li>
+  <li class="nav-item {{ pageActive == 'inventory' ? 'active' : '' }}">
+    <a class="nav-link" [routerLink]="['/admin/inventory']">
+      <i class="fas fa-chart-pie"></i>
+      <span>Stock</span></a
+    >
+  </li>
 
-    <!-- Divider -->
-    <!-- <hr class="sidebar-divider d-none d-md-block"> -->
+  <!-- Divider -->
+  <!-- <hr class="sidebar-divider d-none d-md-block"> -->
 
-    <!-- Sidebar Toggler (Sidebar) -->
-    <!-- <div class="text-center d-none d-md-inline">
+  <!-- Sidebar Toggler (Sidebar) -->
+  <!-- <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div> -->
-
 </ul>

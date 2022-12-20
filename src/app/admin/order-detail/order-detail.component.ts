@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output, TemplateRef } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  TemplateRef,
+} from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
@@ -10,10 +17,9 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-order-detail',
   templateUrl: './order-detail.component.html',
-  styleUrls: ['./order-detail.component.css']
+  styleUrls: ['./order-detail.component.css'],
 })
 export class OrderDetailComponent implements OnInit {
-
   orderDetails!: OrderDetail[];
   order!: Order;
   listData!: MatTableDataSource<OrderDetail>;
@@ -25,7 +31,11 @@ export class OrderDetailComponent implements OnInit {
   updateFinish: EventEmitter<any> = new EventEmitter<any>();
   @Input() orderId!: number;
 
-  constructor(private modalService: NgbModal, private orderService: OrderService, private toastr: ToastrService) { }
+  constructor(
+    private modalService: NgbModal,
+    private orderService: OrderService,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit(): void {
     this.getOrder();
@@ -33,21 +43,27 @@ export class OrderDetailComponent implements OnInit {
   }
 
   getOrder() {
-    this.orderService.getById(this.orderId).subscribe(data => {
-      this.order = data as Order;
-    }, error => {
-      this.toastr.error('Error! ' + error.status, 'System');
-    })
+    this.orderService.getById(this.orderId).subscribe(
+      (data) => {
+        this.order = data as Order;
+      },
+      (error) => {
+        this.toastr.error('Error! ' + error.status, 'System');
+      }
+    );
   }
 
   getDetail() {
-    this.orderService.getByOrder(this.orderId).subscribe(data => {
-      this.orderDetails = data as OrderDetail[];
-      this.listData = new MatTableDataSource(this.orderDetails);
-      this.orderDetailLength = this.orderDetails.length;
-    }, error => {
-      this.toastr.error('Error! ' + error.status, 'System');
-    })
+    this.orderService.getByOrder(this.orderId).subscribe(
+      (data) => {
+        this.orderDetails = data as OrderDetail[];
+        this.listData = new MatTableDataSource(this.orderDetails);
+        this.orderDetailLength = this.orderDetails.length;
+      },
+      (error) => {
+        this.toastr.error('Error! ' + error.status, 'System');
+      }
+    );
   }
 
   open(content: TemplateRef<any>) {
@@ -58,7 +74,10 @@ export class OrderDetailComponent implements OnInit {
     this.orderService.getByOrder(this.orderId).subscribe((resp: any) => {
       for (let i = 0; i < this.orderDetailLength; i++) {
         if (resp[i].quantity > resp[i].product.quantity) {
-          this.toastr.warning('Product ' + resp[i].product.name + " is not enough !", 'System');
+          this.toastr.warning(
+            'Product ' + resp[i].product.name + ' is not enough !',
+            'System'
+          );
           return;
         }
       }
@@ -67,50 +86,53 @@ export class OrderDetailComponent implements OnInit {
         icon: 'question',
         showCancelButton: true,
         confirmButtonText: 'Confirm',
-        cancelButtonText: 'Cancel'
+        cancelButtonText: 'Cancel',
       }).then((result) => {
         if (result.isConfirmed) {
-          this.orderService.deliver(this.orderId).subscribe(data => {
-
-            this.toastr.success('Confirm successfully!', 'System');
-            this.updateFinish.emit('done');
-            this.modalService.dismissAll();
-          }, error => {
-            this.toastr.error('Error! ' + error.status, 'System');
-          })
+          this.orderService.deliver(this.orderId).subscribe(
+            (data) => {
+              this.toastr.success('Confirm successfully!', 'System');
+              this.updateFinish.emit('done');
+              this.modalService.dismissAll();
+            },
+            (error) => {
+              this.toastr.error('Error! ' + error.status, 'System');
+            }
+          );
         }
-      })
-    })
+      });
+    });
   }
 
   cancel() {
     Swal.fire({
-      title: 'Do you want to cancel this orders ?',
+      title: 'Do you want to delay this orders ?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Confirm',
       cancelButtonText: 'Cancel',
-      text: "What is reason for canceling",
+      text: 'What is reason for delay',
       input: 'text',
       preConfirm: (value) => {
         if (!value) {
-          Swal.showValidationMessage(
-            'Enter reason for cancel'
-          )
+          Swal.showValidationMessage('Enter reason for delay');
         }
         this.reason = value;
-      }
+      },
     }).then((result) => {
       if (result.isConfirmed) {
-        this.orderService.cancelReason(this.orderId, this.reason).subscribe(data => {
-          this.toastr.success('Cancel successfully!', 'System');
-          this.updateFinish.emit('done');
-          this.modalService.dismissAll();
-        }, error => {
-          this.toastr.error('Error! ' + error.status, 'System');
-        })
+        this.orderService.cancelReason(this.orderId, this.reason).subscribe(
+          (data) => {
+            this.toastr.success('Delay successfully!', 'System');
+            this.updateFinish.emit('done');
+            this.modalService.dismissAll();
+          },
+          (error) => {
+            this.toastr.error('Error! ' + error.status, 'System');
+          }
+        );
       }
-    })
+    });
   }
 
   confirm() {
@@ -119,18 +141,21 @@ export class OrderDetailComponent implements OnInit {
       icon: 'question',
       showCancelButton: true,
       confirmButtonText: 'Confirm',
-      cancelButtonText: 'Cancel'
+      cancelButtonText: 'Cancel',
     }).then((result) => {
       if (result.isConfirmed) {
-        this.orderService.success(this.orderId).subscribe(data => {
-          this.toastr.success('Confirm successfully!', 'System');
-          this.updateFinish.emit('Done');
-          this.modalService.dismissAll();
-        }, error => {
-          this.toastr.error('Error! ' + error.status, 'System');
-        })
+        this.orderService.success(this.orderId).subscribe(
+          (data) => {
+            this.toastr.success('Confirm successfully!', 'System');
+            this.updateFinish.emit('Done');
+            this.modalService.dismissAll();
+          },
+          (error) => {
+            this.toastr.error('Error! ' + error.status, 'System');
+          }
+        );
       }
-    })
+    });
   }
 
   confirmm() {
@@ -139,18 +164,20 @@ export class OrderDetailComponent implements OnInit {
       icon: 'question',
       showCancelButton: true,
       confirmButtonText: 'Confirm',
-      cancelButtonText: 'Cancel'
+      cancelButtonText: 'Cancel',
     }).then((result) => {
       if (result.isConfirmed) {
-        this.orderService.success(this.orderId).subscribe(data => {
-          this.toastr.success('Confirm successfully!', 'System');
-          this.updateFinish.emit('done');
-          this.modalService.dismissAll();
-        }, error => {
-          this.toastr.error('Error! ' + error.status, 'System');
-        })
+        this.orderService.success(this.orderId).subscribe(
+          (data) => {
+            this.toastr.success('Confirm successfully!', 'System');
+            this.updateFinish.emit('done');
+            this.modalService.dismissAll();
+          },
+          (error) => {
+            this.toastr.error('Error! ' + error.status, 'System');
+          }
+        );
       }
-    })
+    });
   }
-
 }
